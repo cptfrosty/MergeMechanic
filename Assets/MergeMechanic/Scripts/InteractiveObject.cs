@@ -14,11 +14,6 @@ public class InteractiveObject : MonoBehaviour
     //[HideInInspector]
     public bool IsMerging = false;
 
-    private void Awake()
-    {
-        
-    }
-
     void OnMouseDown()
     {
         if (!_isCanMove) return;
@@ -30,8 +25,10 @@ public class InteractiveObject : MonoBehaviour
     {
         if (!_isCanMove) return;
 
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, 0, screenPoint.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        curPosition.x = Mathf.Clamp(curPosition.x, GameManager.Instance.MinMoveX, GameManager.Instance.MaxMoveX);
+        curPosition.y = transform.position.y;
         curPosition.z = 0;
         transform.position = curPosition;
     }

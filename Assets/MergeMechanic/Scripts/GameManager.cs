@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ContentDataSO _content;
     [SerializeField] private Transform _spawnPoint;
 
+    [Header("Перемещение")]
+    public float MinMoveX = 5.0f;
+    public float MaxMoveX = -5.0f;
+
 
     public int CurrentMaxStage { 
         get { return _currentMaxStage; } 
