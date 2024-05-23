@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
 
     [Header("Перемещение")]
-    public float MinMoveX = 5.0f;
-    public float MaxMoveX = -5.0f;
+    public float MinMoveX = -5.0f;
+    public float MaxMoveX = 5.0f;
 
 
     public int CurrentMaxStage { 
