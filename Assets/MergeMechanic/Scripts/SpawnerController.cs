@@ -8,7 +8,7 @@ public class SpawnerController : MonoBehaviour
     public static SpawnerController Instance;
     public event UnityAction<InteractiveObject> ObjectCreated;
 
-    private ContentDataSO _content { get => GameManager.Instance.GetContent; }
+    private ContentDataSO _content { get => MergeGameManager.Instance.GetContent; }
     private InteractiveObject _lastSpawnObject;
     private float _timerSpawn = 1f;
     
@@ -30,7 +30,7 @@ public class SpawnerController : MonoBehaviour
     /// </summary>
     public void BaseCreate()
     {
-        int rnd = Random.Range(0, GameManager.Instance.CurrentMaxStage);
+        int rnd = Random.Range(0, MergeGameManager.Instance.CurrentMaxStage);
         Create(_content.InteractObject[rnd]);
     }
 

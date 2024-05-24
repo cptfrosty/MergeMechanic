@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class MergeGameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static MergeGameManager Instance;
     public Transform GetSpawnPoint { get => _spawnPoint; }
     public ContentDataSO GetContent { get => _content; }
 
@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         SpawnerController.Instance.SetSpawnPosition(_spawnPoint.position);
         SpawnerController.Instance.Create(_content.InteractObject[0]);
         SpawnerController.Instance.ObjectCreated += SpawnerController_ObjectCreated;
+
+        _content.SetStage();
     }
 
     private void SpawnerController_ObjectCreated(InteractiveObject arg0)

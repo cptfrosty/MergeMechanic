@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Merge : MonoBehaviour
 {
-    private static ContentDataSO GetContent { get => GameManager.Instance.GetContent; }
+    private static ContentDataSO GetContent { get => MergeGameManager.Instance.GetContent; }
 
     private static InteractiveObject _objectA = null;
     private static InteractiveObject _objectB = null;

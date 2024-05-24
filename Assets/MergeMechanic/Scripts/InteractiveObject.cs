@@ -27,7 +27,7 @@ public class InteractiveObject : MonoBehaviour
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        curPosition.x = Mathf.Clamp(curPosition.x, GameManager.Instance.MinMoveX, GameManager.Instance.MaxMoveX);
+        curPosition.x = Mathf.Clamp(curPosition.x, MergeGameManager.Instance.MinMoveX, MergeGameManager.Instance.MaxMoveX);
         curPosition.y = transform.position.y;
         curPosition.z = 0;
         transform.position = curPosition;
