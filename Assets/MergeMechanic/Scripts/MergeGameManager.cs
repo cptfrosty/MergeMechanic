@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MergeGameManager : MonoBehaviour
 {
     public static MergeGameManager Instance;
+    public static event UnityAction<int> OpeningStage;
     public Transform GetSpawnPoint { get => _spawnPoint; }
     public ContentDataSO GetContent { get => _content; }
 
