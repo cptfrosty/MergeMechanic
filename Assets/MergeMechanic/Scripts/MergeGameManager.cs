@@ -24,6 +24,7 @@ public class MergeGameManager : MonoBehaviour
             if(value > _currentMaxStage)
             {
                 _currentMaxStage = value;
+                OpeningStage?.Invoke(value);
             }
         }
     }
@@ -47,7 +48,7 @@ public class MergeGameManager : MonoBehaviour
         _content.SetStage();
     }
 
-    private void SpawnerController_ObjectCreated(InteractiveObject arg0)
+    private void SpawnerController_ObjectCreated(MergeObject arg0)
     {
         CurrentMaxStage = arg0.Stage;
     }

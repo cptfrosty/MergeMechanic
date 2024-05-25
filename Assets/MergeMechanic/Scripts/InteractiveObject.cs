@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractiveObject : MonoBehaviour
+public class InteractiveObject : MergeObject
 {
-    public int Stage = -1;
-    public bool IsCanMove { set => _isCanMove = value; }
-    private bool _isCanMove = true;
-
     private Rigidbody2D _rb2d;
     private Vector3 screenPoint;
 
-    //[HideInInspector]
-    public bool IsMerging = false;
 
     void OnMouseDown()
     {

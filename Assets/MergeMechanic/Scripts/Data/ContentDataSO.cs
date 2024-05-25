@@ -6,7 +6,7 @@ using UnityEngine;
 public class ContentDataSO :  ScriptableObject
 {
     public int GetMaxStage { get => InteractObject.Count; }
-    public List<InteractiveObject> InteractObject;
+    public List<MergeObject> InteractObject;
 
     [ContextMenu("Установить стадии")]
     public void SetStage()

@@ -6,8 +6,8 @@ public class Merge : MonoBehaviour
 {
     private static ContentDataSO GetContent { get => MergeGameManager.Instance.GetContent; }
 
-    private static InteractiveObject _objectA = null;
-    private static InteractiveObject _objectB = null;
+    private static MergeObject _objectA = null;
+    private static MergeObject _objectB = null;
     private static bool _isMerge = false;
 
 
@@ -17,7 +17,7 @@ public class Merge : MonoBehaviour
         _objectB = null;
     }
 
-    public static void Interactive(InteractiveObject objA, InteractiveObject objB)
+    public static void Interactive(MergeObject objA, MergeObject objB)
     {
         if (objA == null || objB == null ||
             objA.IsMerging || objB.IsMerging) return;

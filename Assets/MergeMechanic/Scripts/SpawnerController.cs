@@ -6,14 +6,14 @@ using UnityEngine.Events;
 public class SpawnerController : MonoBehaviour
 {
     public static SpawnerController Instance;
-    public event UnityAction<InteractiveObject> ObjectCreated;
+    public event UnityAction<MergeObject> ObjectCreated;
 
     private ContentDataSO _content { get => MergeGameManager.Instance.GetContent; }
-    private InteractiveObject _lastSpawnObject;
+    private MergeObject _lastSpawnObject;
     private float _timerSpawn = 1f;
     
     private Vector3 _spawnPosition;
-    private List<InteractiveObject> _allInteractiveObjects = new List<InteractiveObject>();
+    private List<MergeObject> _allInteractiveObjects = new List<MergeObject>();
 
     private void Awake()
     {
@@ -34,12 +34,12 @@ public class SpawnerController : MonoBehaviour
         Create(_content.InteractObject[rnd]);
     }
 
-    public void Create(InteractiveObject _obj)
+    public void Create(MergeObject _obj)
     {
         StartCoroutine(IECreate(_obj));
     }
 
-    public void CreateMerge(InteractiveObject _obj, Vector3 position)
+    public void CreateMerge(MergeObject _obj, Vector3 position)
     {
         _lastSpawnObject = Instantiate(_obj);
         _lastSpawnObject.transform.position = position;
@@ -50,7 +50,7 @@ public class SpawnerController : MonoBehaviour
         ObjectCreated?.Invoke(_lastSpawnObject);
     }
 
-    private IEnumerator IECreate(InteractiveObject _obj)
+    private IEnumerator IECreate(MergeObject _obj)
     {
         yield return new WaitForSeconds(_timerSpawn);
         _lastSpawnObject = Instantiate(_obj);
@@ -61,7 +61,7 @@ public class SpawnerController : MonoBehaviour
         ObjectCreated?.Invoke(_lastSpawnObject);
     }
 
-    private void RemoveObject(InteractiveObject obj)
+    private void RemoveObject(MergeObject obj)
     {
         _allInteractiveObjects.Remove(obj);
     }
